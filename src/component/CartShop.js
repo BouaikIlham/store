@@ -34,7 +34,7 @@ const CartShop = () => {
                                       <div className="mt-8">
                                           <div className="flow-root">
                                               {store.cart.length === 0 && (
-                                                  <h3>Your cart s empty</h3>
+                                                  <h3>Your cart is  empty add some products</h3>
                                               )}
                                               <ul role="list" className="-my-6 divide-y divide-gray-200">
                                                 {store.cart.map((product) => {
@@ -73,7 +73,6 @@ const CartShop = () => {
                                           <p>Total</p>
                                           <p>$262.00</p>
                                       </div>
-                                      <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                                       <div className="mt-6">
                                           <a href="hee" className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
                                       </div>
