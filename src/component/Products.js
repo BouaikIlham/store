@@ -16,16 +16,18 @@ const Products = () => {
     store.fetchProducts()
   }, [])
   return (
-    <Link to="productDetails">
     <div className="mx-auto container py-8">
       <CartShop />
       <div className="flex flex-wrap items-center lg:justify-between justify-center">
         {products.map((product) => {
           return (
             <div key={product.id}  className="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
-              <div>
-                <img src={product.image} alt={product.title} className="focus:outline-none w-full h-44" />
-              </div>
+              <Link to="productDetails">
+                <div>
+                  <img src={product.image} alt={product.title} className="focus:outline-none w-full h-44" />
+                </div>
+              </Link>
+
               <div className="bg-white">
                 <div className="flex items-center justify-between px-4 pt-4">
                   <div>
@@ -53,7 +55,7 @@ const Products = () => {
                     </div>
                   </div>
                   <div className="flex items-center justify-between py-4">
-                    <button className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2">Add to Cart</button>
+                    <button onClick={() =>store.addToCart(product)} className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2">Add to Cart</button>
                   </div>
                 </div>
               </div>
@@ -62,7 +64,6 @@ const Products = () => {
         })}
       </div>
     </div>
-    </Link>
   )
 }
 
