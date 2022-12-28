@@ -1,6 +1,6 @@
 import {useState} from "react"
 import useStore from "../store/store"
-
+import { Link } from "react-router-dom";
 const CartShop = () => {
     const store = useStore();
     const [cartOpen, setCartOpen] = useState(false)
@@ -36,7 +36,7 @@ const CartShop = () => {
                                               {store.cart.length === 0 && (
                                                   <h3>Your cart is  empty add some products</h3>
                                               )}
-                                              <ul role="list" className="-my-6 divide-y divide-gray-200">
+                                              <ul className="-my-6 divide-y divide-gray-200">
                                                 {store.cart.map((product) => {
                                                     return (
                                                         <li key={product.id} className="flex py-6">
@@ -74,7 +74,9 @@ const CartShop = () => {
                                           <p>$262.00</p>
                                       </div>
                                       <div className="mt-6 flex space-x-4 ">
+                                        <Link to="/checkout">
                                           <button className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</button>
+                                        </Link>
                                           <button onClick={store.clearCart} className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Clear Cart</button>
                                       </div>
                                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">

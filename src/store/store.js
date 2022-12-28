@@ -32,7 +32,6 @@ Product: [],
     },
 
     clearCart: () => {
-        const {cart} = useStore.getState()
         set({cart: []})
     },
     removeProductFromCart: (product) => {
@@ -40,7 +39,7 @@ Product: [],
         const newCart = cart.filter((p) => p.id !== product.id)
         console.log(newCart)
         set({cart: newCart})
-    }
+    },
 
 })
 
