@@ -3,6 +3,7 @@ import create from 'zustand'
 let store = (set) => ({
 products: [],
 cart: [],
+Product: [],
     fetchProducts: async () => {
         const res = await fetch("https://fakestoreapi.com/products")
             .then((res) => res.json())
@@ -23,6 +24,10 @@ cart: [],
         }
 
         set((state) => ({ cart: [...state.cart, { ...product }] }))
+
+    },
+    ProductDetails: (p) => {
+        set({ Product: p})
 
     }
 

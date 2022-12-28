@@ -22,7 +22,7 @@ const Products = () => {
         {products.map((product) => {
           return (
             <div key={product.id}  className="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
-              <Link to="productDetails">
+              <Link onClick={() => store.ProductDetails(product)} to="productDetails">
                 <div>
                   <img src={product.image} alt={product.title} className="focus:outline-none w-full h-44" />
                 </div>
