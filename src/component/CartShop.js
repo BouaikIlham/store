@@ -7,7 +7,7 @@ const CartShop = () => {
   return (
     <div>
           <div className='flex justify-end'>
-              <svg onClick={() => setCartOpen(!cartOpen)} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-28 h-10 cursor-pointer">
+              <svg onClick={() => setCartOpen(!cartOpen)} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-28 h-10 cursor-pointer fixed">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
             </svg>
           </div>
@@ -57,7 +57,7 @@ const CartShop = () => {
                                                                     <p className="text-gray-500">{product.category}</p>
 
                                                                     <div className="flex">
-                                                                        <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
+                                                                        <button onClick={() => store.removeProductFromCart(product)} type="button" className="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -73,8 +73,9 @@ const CartShop = () => {
                                           <p>Total</p>
                                           <p>$262.00</p>
                                       </div>
-                                      <div className="mt-6">
-                                          <a href="hee" className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
+                                      <div className="mt-6 flex space-x-4 ">
+                                          <button className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</button>
+                                          <button onClick={store.clearCart} className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Clear Cart</button>
                                       </div>
                                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                                           <p>

@@ -29,6 +29,17 @@ Product: [],
     ProductDetails: (p) => {
         set({ Product: p})
 
+    },
+
+    clearCart: () => {
+        const {cart} = useStore.getState()
+        set({cart: []})
+    },
+    removeProductFromCart: (product) => {
+        const { cart } = useStore.getState();
+        const newCart = cart.filter((p) => p.id !== product.id)
+        console.log(newCart)
+        set({cart: newCart})
     }
 
 })
