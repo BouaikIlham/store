@@ -4,7 +4,6 @@ import useStore from '../store/store'
 const Checkout = () => {
     const store = useStore()
     const product = store.cart
-
     useEffect(() => {
         store.updateTotalCart()
     }, [])
@@ -59,7 +58,7 @@ const Checkout = () => {
                                                                   <div className="flex w-full items-center justify-center bg-gray-100 px-4 text-xs uppercase transition">
                                                                     {p.number}
                                                                   </div>
-                                                                  
+
                                                                   <button
                                                                       onClick={() => store.incrementProductNumber(p)}  className="flex items-center justify-center rounded-r-md bg-gray-200 px-4 transition hover:bg-black hover:text-white"
                                                                   >

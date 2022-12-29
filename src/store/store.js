@@ -1,13 +1,13 @@
 import create from 'zustand'
 
 let store = (set) => ({
-products: [],
-cart: [],
-Product: [],
-total : 0,
+    products: [],
+    cart: [],
+    Product: [],
+    total : 0,
     fetchProducts: async () => {
         const res = await fetch("https://fakestoreapi.com/products")
-            .then((res) => res.json())
+        .then((res) => res.json())
             .then((res) => res);
 
         set({ products: res });
@@ -23,8 +23,9 @@ total : 0,
         if (isFound) {
             return alert("Aleardy in cart")
         }
-
-        set((state) => ({ cart: [...state.cart, { ...product, number: 1 }] }))
+        let sum = cart.reduce((acc, value) => acc + value.price, 0)
+        sum = sum.toFixed(2)
+        set((state) => ({ cart: [...state.cart, { ...product, number: 1 }], total: sum }))
 
     },
     ProductDetails: (p) => {
@@ -45,6 +46,7 @@ total : 0,
 
     updateTotalCart: () => {
         const { cart } = useStore.getState();
+        console.log(cart)
             let sum = cart.reduce((acc, value) => acc + value.price, 0)
             sum = sum.toFixed(2)
             set({ total: sum })

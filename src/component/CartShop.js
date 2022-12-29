@@ -3,7 +3,9 @@ import useStore from "../store/store"
 import { Link } from "react-router-dom";
 const CartShop = () => {
     const store = useStore();
+    const products = store.cart
     const [cartOpen, setCartOpen] = useState(false)
+
   return (
     <div>
           <div className='flex justify-end'>
@@ -37,7 +39,7 @@ const CartShop = () => {
                                                   <h3>Your cart is  empty add some products</h3>
                                               )}
                                               <ul className="-my-6 divide-y divide-gray-200">
-                                                {store.cart.map((product) => {
+                                                  {products.map((product) => {
                                                     return (
                                                         <li key={product.id} className="flex py-6">
                                                             <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
@@ -51,7 +53,7 @@ const CartShop = () => {
                                                                         </h3>
                                                                         <p className="ml-4">{product.price}</p>
                                                                     </div>
-                                                                    <p className="mt-1 text-sm text-gray-500">{product.rating.rate}</p>
+                                                                    <p className="mt-1 text-sm text-gray-500">{product.rate}</p>
                                                                 </div>
                                                                 <div className="flex flex-1 items-end justify-between text-sm">
                                                                     <p className="text-gray-500">{product.category}</p>
@@ -71,7 +73,7 @@ const CartShop = () => {
                                   <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
                                       <div className="flex justify-between text-base font-medium text-gray-900">
                                           <p>Total</p>
-                                          <p>$262.00</p>
+                                          <p>$ {store.total}</p>
                                       </div>
                                       <div className="mt-6 flex space-x-4 ">
                                         <Link to="/checkout">
