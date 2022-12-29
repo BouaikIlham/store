@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import useStore from '../store/store'
 
 const Checkout = () => {
     const store = useStore()
     const product = store.cart
+
+    useEffect(() => {
+        store.updateTotalCart()
+    }, [])
   return (
       <section className="h-screen py-12 sm:py-16 lg:py-20">
           <div className="mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,10 +56,10 @@ const Checkout = () => {
                                                                       -
                                                                   </button>
                                                                   <div className="flex w-full items-center justify-center bg-gray-100 px-4 text-xs uppercase transition">
-                                                                    1
+                                                                    {p.number}
                                                                   </div>
                                                                   <button
-                                                                      className="flex items-center justify-center rounded-r-md bg-gray-200 px-4 transition hover:bg-black hover:text-white"
+                                                                      onClick={() => store.incrementProductNumber(p)}  className="flex items-center justify-center rounded-r-md bg-gray-200 px-4 transition hover:bg-black hover:text-white"
                                                                   >
                                                                       +
                                                                   </button>
@@ -85,13 +89,13 @@ const Checkout = () => {
                                   })}
                               </ul>
                           </div>
-                          <hr class="my-8 h-px bg-gray-200 border-0 dark:bg-gray-700" />
+                          <hr className="my-8 h-px bg-gray-200 border-0 dark:bg-gray-700" />
 
                           <div className="mt-6 flex items-center justify-between">
                               <p className="text-sm font-medium text-gray-900">Total</p>
                               <p className="text-2xl font-semibold text-gray-900">
                                   <span className="text-xs font-normal text-gray-400">USD</span>
-                                  1257
+                                  {store.total}
                               </p>
                           </div>
 
