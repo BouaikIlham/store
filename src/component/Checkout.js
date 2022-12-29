@@ -46,18 +46,20 @@ const Checkout = () => {
 
                                                       <div className="mt-4 flex items-end justify-between sm:mt-0 sm:items-start sm:justify-end">
                                                           <p className="shrink-0 w-20 text-base font-semibold text-gray-900 sm:order-2 sm:ml-8 sm:text-right">
-                                                              $ {p.price}
+                                                              $ {(p.price * p.number).toFixed(2)}
                                                           </p>
                                                           <div className="sm:order-1">
                                                               <div className="mx-auto flex h-8 items-stretch text-gray-600">
-                                                                  <button
-                                                                      className="flex items-center justify-center rounded-l-md bg-gray-200 px-4 transition hover:bg-black hover:text-white"
+                                                                  <button 
+                                                                    onClick={() => store.decrementProductNumber(p)}
+                                                                    className="flex items-center justify-center rounded-l-md bg-gray-200 px-4 transition hover:bg-black hover:text-white"
                                                                   >
                                                                       -
                                                                   </button>
                                                                   <div className="flex w-full items-center justify-center bg-gray-100 px-4 text-xs uppercase transition">
                                                                     {p.number}
                                                                   </div>
+                                                                  
                                                                   <button
                                                                       onClick={() => store.incrementProductNumber(p)}  className="flex items-center justify-center rounded-r-md bg-gray-200 px-4 transition hover:bg-black hover:text-white"
                                                                   >
