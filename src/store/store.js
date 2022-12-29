@@ -2,6 +2,7 @@ import create from 'zustand'
 import { devtools } from "zustand/middleware"; 
 
 let store = (set) => ({
+    isLoading: true,
     products: [],
     cart: [],
     Product: [],
@@ -12,7 +13,7 @@ let store = (set) => ({
         .then((res) => res.json())
             .then((res) => res);
 
-        set({ products: res });
+        set({ products: res, isLoading: false });
     },
     addToCart: (product) => {
         const { cart } = useStore.getState();
@@ -88,7 +89,7 @@ let store = (set) => ({
         const category = await fetch('https://fakestoreapi.com/products/category/electronics')
             .then(category => category.json())
             .then(category => category)
-        set({category: category})
+        set({category: category, isLoading: false})
     }
 
 
