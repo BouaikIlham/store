@@ -7,7 +7,8 @@ let store = (set) => ({
     cart: [],
     Product: [],
     total : 0,
-    category: [],
+    ProductBycategories: [],
+    categories: [ "electronics" ],
     fetchProducts: async () => {
         const res = await fetch("https://fakestoreapi.com/products")
         .then((res) => res.json())
@@ -85,12 +86,21 @@ let store = (set) => ({
             set({ cart: cart, total: sum })
         }
     },
-    filterProductByCategory: async () => {
-        const category = await fetch('https://fakestoreapi.com/products/category/electronics')
-            .then(category => category.json())
-            .then(category => category)
-        set({category: category, isLoading: false})
+    // filterProductByCategory: async () => {
+    //     const category = await fetch('https://fakestoreapi.com/products/category/electronics')
+    //         .then(category => category.json())
+    //         .then(category => category)
+    //     set({category: category, isLoading: false})
+    // }
+    filterProductByCategory: () => {
+        const {products} = useStore.getState()
+        const { categories } = useStore.getState()
+        const productsByCategory = products.filter((p) => {
+            return p.category === categories[0]
+        })
+        set({ ProductBycategories: productsByCategory})
     }
+
 
 
 })
