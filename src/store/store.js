@@ -8,7 +8,7 @@ let store = (set) => ({
     Product: [],
     total : 0,
     ProductBycategories: [],
-    categories: [ "electronics" ],
+    categories: [],
     fetchProducts: async () => {
         const res = await fetch("https://fakestoreapi.com/products")
         .then((res) => res.json())
@@ -18,7 +18,7 @@ let store = (set) => ({
     },
     addToCart: (product) => {
         const { cart } = useStore.getState();
-        console.log(cart.length)
+        console.log(cart)
         const isFound = cart.some((p) => {
             if (p.id === product.id) {
                 return true;
@@ -51,7 +51,7 @@ let store = (set) => ({
 
     updateTotalCart: () => {
         const { cart } = useStore.getState();
-        console.log(cart.length)
+        console.log(cart)
             let sum = cart.reduce((acc, value) => acc + value.price, 0)
             sum = sum.toFixed(2)
             set({ total: sum })
@@ -86,20 +86,30 @@ let store = (set) => ({
             set({ cart: cart, total: sum })
         }
     },
-    // filterProductByCategory: async () => {
-    //     const category = await fetch('https://fakestoreapi.com/products/category/electronics')
-    //         .then(category => category.json())
-    //         .then(category => category)
-    //     set({category: category, isLoading: false})
-    // }
-    filterProductByCategory: () => {
+    fetchCategories: async () => {
+         const category = await fetch('https://fakestoreapi.com/products/categories/')
+             .then(category => category.json())
+             .then(category => category)
+        set({ categories: category})
+     },
+
+    filterProductByCategories: () => {
         const {products} = useStore.getState()
-        const { categories } = useStore.getState()
+        const {categories} = useStore.getState()
         const productsByCategory = products.filter((p) => {
             return p.category === categories[0]
         })
         set({ ProductBycategories: productsByCategory})
-    }
+    },
+    filterProductByJewelery: () => {
+        const { products } = useStore.getState()
+        const { categories } = useStore.getState()
+        const productsByCategory = products.filter((p) => {
+            return p.category === categories[1]
+        })
+        set({ ProductBycategories: productsByCategory })
+    },
+
 
 
 

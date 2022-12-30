@@ -4,7 +4,8 @@ const Elctronics = () => {
     const store = useStore()
     const products = store.ProductBycategories
     useEffect(() => {
-        store.filterProductByCategory()
+        store.filterProductByCategories()
+        store.fetchCategories()
     }, [])
   return (
     <div className="mx-auto container py-8">
