@@ -5,6 +5,8 @@ import ProductDetails from "./component/ProductDetails";
 import Checkout from "./component/Checkout";
 import Elctronics from "./component/Elctronics";
 import Jewelery from "./component/Jewelery";
+import Women from "./component/Women";
+import Men from "./component/Men";
 
 function App() {
   
@@ -17,6 +19,9 @@ function App() {
         <Route path="/checkout" element={<Checkout />}></Route>
         <Route path="/electronics" element={<Elctronics />}></Route>
         <Route path="/jewelery" element={<Jewelery />}></Route>
+        <Route path="/women" element={<Women />}></Route>
+        <Route path="/men" element={<Men />}></Route>
+
       </Routes>
     </div>
   );

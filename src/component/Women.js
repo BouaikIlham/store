@@ -1,8 +1,8 @@
 import useStore from '../store/store'
 import { useEffect } from 'react'
-const Jewelery = () => {
+const Women = () => {
     const store = useStore()
-    const products = store.jewelery
+    const products = store.women
     useEffect(() => {
         store.filterProdctsByCategory()
         store.fetchCategories()
@@ -49,4 +49,4 @@ const Jewelery = () => {
     )
 }
 
-export default Jewelery
+export default Women

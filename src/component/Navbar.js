@@ -23,8 +23,8 @@ const Navbar = () => {
                       <Link to="/" className="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0">Home</Link>
                       <Link to="/electronics" className="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0">Electronics</Link>
                       <Link to="/jewelery" className="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0">jewelery</Link>
-                      <Link to="/" className="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0">Women</Link>
-                      <Link to="/" className="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0">Men</Link>
+                      <Link to="/women" className="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0">Women</Link>
+                      <Link to="/men" className="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0">Men</Link>
 
                   </div>
               </div>

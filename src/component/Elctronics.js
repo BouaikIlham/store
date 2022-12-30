@@ -2,9 +2,9 @@ import useStore from '../store/store'
 import { useEffect } from 'react'
 const Elctronics = () => {
     const store = useStore()
-    const products = store.ProductBycategories
+    const products = store.electronics
     useEffect(() => {
-        store.filterProductByCategories()
+        store.filterProdctsByCategory()
         store.fetchCategories()
     }, [])
   return (

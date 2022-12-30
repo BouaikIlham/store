@@ -1,5 +1,5 @@
 import create from 'zustand'
-import { devtools } from "zustand/middleware"; 
+import { persist, devtools } from "zustand/middleware"; 
 
 let store = (set) => ({
     isLoading: true,
@@ -9,6 +9,10 @@ let store = (set) => ({
     total : 0,
     ProductBycategories: [],
     categories: [],
+    electronics: [],
+    men: [],
+    jewelery: [],
+    women: [],
     fetchProducts: async () => {
         const res = await fetch("https://fakestoreapi.com/products")
         .then((res) => res.json())
@@ -88,27 +92,21 @@ let store = (set) => ({
     },
     fetchCategories: async () => {
          const category = await fetch('https://fakestoreapi.com/products/categories/')
-             .then(category => category.json())
-             .then(category => category)
+            .then(category => category.json())
+            .then(category => category)
         set({ categories: category})
      },
 
-    filterProductByCategories: () => {
-        const {products} = useStore.getState()
-        const {categories} = useStore.getState()
-        const productsByCategory = products.filter((p) => {
-            return p.category === categories[0]
-        })
-        set({ ProductBycategories: productsByCategory})
-    },
-    filterProductByJewelery: () => {
+
+    filterProdctsByCategory: () => {
         const { products } = useStore.getState()
         const { categories } = useStore.getState()
-        const productsByCategory = products.filter((p) => {
-            return p.category === categories[1]
-        })
-        set({ ProductBycategories: productsByCategory })
-    },
+        const filteredProducts = categories.map(category => products.filter(product => product.category === category));
+        let arr = filteredProducts
+        let [electronics, jewelery, men, women] = arr
+        set({ electronics: electronics, jewelery: jewelery, women: women, men: men })
+
+    }
 
 
 
@@ -116,6 +114,8 @@ let store = (set) => ({
 })
 
 store = devtools(store);
+store = persist(store);
+
 
 const useStore = create(store);
 
