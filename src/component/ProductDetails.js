@@ -8,7 +8,7 @@ const ProductDetails = () => {
     <div className="bg-white">
         <div className="pt-6">
               <Link to="/" >
-                  <button>Back to home</button>
+                  <button className='bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded m-4'>Back to home</button>
               </Link>
             <nav aria-label="Breadcrumb">
                 <ul className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">

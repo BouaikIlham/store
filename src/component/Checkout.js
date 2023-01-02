@@ -12,7 +12,7 @@ const Checkout = () => {
       <section className="h-screen py-12 sm:py-16 lg:py-20">
           <div className="mx-auto px-4 sm:px-6 lg:px-8">
             <Link to="/" >
-              <button>Back to home</button>
+                  <button className='bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded'>Back to home</button>
             </Link>
               <div className="flex items-center justify-center">
                   <h1 className="text-2xl font-semibold text-gray-900">Your cart</h1>
