@@ -84,6 +84,15 @@ let store = (set) => ({
             sum = sum.toFixed(2)
             set({ cart: cart, total: sum })
         }
+    },
+     filterProducts: (category) => {
+        const {products} = useStore.getState()
+        const result = products.filter((p) => {
+            return p.category === category
+        })
+        console.log(result)
+        set({products: result})
+        
     }
 })
 
