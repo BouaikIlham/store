@@ -20,12 +20,11 @@ const Navbar = () => {
               </div>
               <div className="md:flex items-center">
                   <div className="flex flex-col md:flex-row md:mx-6">
-                      <Link to="/" className="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0">Home</Link>
-                      <Link to="/electronics" className="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0">Electronics</Link>
-                      <Link to="/jewelery" className="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0">jewelery</Link>
-                      <Link to="/women" className="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0">Women</Link>
-                      <Link to="/men" className="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0">Men</Link>
-
+                      <Link  to="/" className="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0">Home</Link>
+                      <Link  className="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0">Electronics</Link>
+                      <Link  className="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0">Jewelery</Link>
+                      <Link  className="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0">Women</Link>
+                      <Link  className="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0">Men</Link>
                   </div>
               </div>
           </div>
