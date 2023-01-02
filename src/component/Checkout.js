@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import useStore from '../store/store'
+import { Link } from 'react-router-dom'
 
 const Checkout = () => {
     const store = useStore()
@@ -10,6 +11,9 @@ const Checkout = () => {
   return (
       <section className="h-screen py-12 sm:py-16 lg:py-20">
           <div className="mx-auto px-4 sm:px-6 lg:px-8">
+            <Link to="/" >
+              <button>Back to home</button>
+            </Link>
               <div className="flex items-center justify-center">
                   <h1 className="text-2xl font-semibold text-gray-900">Your cart</h1>
               </div>

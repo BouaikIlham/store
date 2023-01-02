@@ -1,13 +1,15 @@
 import useStore from '../store/store'
-import CartShop from './CartShop'
+import { Link } from 'react-router-dom'
 
 const ProductDetails = () => {
     const store = useStore()
     const product = store.Product
   return (
     <div className="bg-white">
-          <CartShop />
         <div className="pt-6">
+              <Link to="/" >
+                  <button>Back to home</button>
+              </Link>
             <nav aria-label="Breadcrumb">
                 <ul className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
                     <li>
