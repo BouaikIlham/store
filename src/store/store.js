@@ -1,5 +1,5 @@
 import create from 'zustand'
-import { persist, devtools } from "zustand/middleware"; 
+import { devtools } from "zustand/middleware"; 
 
 let store = (set) => ({
     isLoading: true,
@@ -7,12 +7,6 @@ let store = (set) => ({
     cart: [],
     Product: [],
     total : 0,
-    ProductBycategories: [],
-    categories: [],
-    electronics: [],
-    men: [],
-    jewelery: [],
-    women: [],
     fetchProducts: async () => {
         const res = await fetch("https://fakestoreapi.com/products")
         .then((res) => res.json())
